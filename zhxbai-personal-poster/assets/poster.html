@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{NAME}}｜个人介绍海报</title><style>
+{{FONT_CSS}}
+*{box-sizing:border-box}html,body{margin:0;background:#e9eef5}body{display:flex;justify-content:center;align-items:flex-start} :root{--blue:#0052D9;--ink:#111C30;--muted:#607086;--pale:#EEF4FF}
+.poster{position:relative;width:1080px;height:1440px;flex-shrink:0;overflow:hidden;background:white;color:var(--ink);font-family:"PingFang SC","Noto Sans CJK SC",sans-serif}
+.top-accent{position:absolute;top:0;left:0;width:1080px;height:10px;background:var(--blue)}
+.logo{position:absolute;left:57px;top:54px;width:280px;height:77px;object-fit:contain}
+.kicker{position:absolute;right:76px;top:79px;font-size:23px;letter-spacing:5px;color:var(--muted)}
+.portrait{position:absolute;left:var(--portrait-x);top:var(--portrait-y);width:var(--portrait-width);height:var(--portrait-height);object-fit:contain;mask-image:linear-gradient(to right,transparent 0%,#000 23%,#000 92%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 12%,#000 70%,transparent 99%);mask-composite:intersect;-webkit-mask-composite:source-in}
+.hero-copy{position:absolute;left:76px;top:210px;z-index:2}
+.name{margin:0;font-family:PosterFont,sans-serif;font-size:112px;font-weight:700;line-height:1.2;letter-spacing:5px}
+.identity{margin-top:29px;font-family:PosterFont,sans-serif;font-size:33px;line-height:1.5}
+.roles{margin-top:11px;font-size:30px;line-height:1.6;color:#4d5e73;letter-spacing:.2px}
+.statement{position:absolute;left:76px;top:580px;font-family:PosterFont,sans-serif;font-size:44px;line-height:1.45;letter-spacing:.2px;z-index:2}
+.statement .blue{color:var(--blue)}
+.statistics{position:absolute;left:76px;top:866px;width:928px;height:158px;display:grid;grid-template-columns:repeat({{STAT_COUNT}},1fr);background:var(--pale);padding:23px 25px 22px}
+.stat{padding-left:17px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.stat+.stat:before{content:"";position:absolute;left:-5px;top:14px;height:82px;width:1px;background:#ccd9ef}
+.number{font-family:PosterFont,sans-serif;font-size:64px;line-height:1.08;color:var(--blue);letter-spacing:-2px}
+
+.stat p{margin:14px 0 0;font-size:23px;line-height:1.4;color:var(--muted);white-space:nowrap}
+.credentials{position:absolute;left:76px;top:1060px;width:928px}
+.credential-main{display:flex;align-items:center;gap:15px;font-family:PosterFont,sans-serif;font-size:35px;line-height:1.55;color:var(--blue);border-left:7px solid var(--blue);padding-left:15px}
+.marker{width:7px;height:32px;background:var(--blue);flex-shrink:0}
+.credential{margin-top:15px;font-size:29px;line-height:1.55;color:var(--ink)}
+.event{position:absolute;left:76px;top:1280px;width:928px;min-height:62px;display:flex;align-items:center;border-top:1px solid #DCE5F1;padding-top:27px;gap:21px}
+.event-label{font-size:23px;letter-spacing:2px;color:var(--muted);flex-shrink:0}
+.event-title{font-family:PosterFont,sans-serif;font-size:30px;line-height:1.5;color:var(--ink)}
+@media(max-width:1080px){body{display:block;background:white}.poster{transform-origin:top left}}
+[hidden]{display:none!important}.brand-label{position:absolute;left:76px;top:69px;font-size:34px;font-weight:700;color:var(--blue)}
+</style></head><body><main class="poster" style="{{STYLE}}" aria-label="{{NAME}}个人介绍海报">
+<div class="top-accent"></div>{{BRAND}}<div class="kicker">{{KICKER}}</div>
+<img class="portrait" src="{{PORTRAIT}}" alt="{{NAME}}的照片">
+<div class="hero-copy"><h1 class="name">{{NAME}}</h1><div class="identity">{{IDENTITY}}</div><div class="roles">{{ROLES}}</div></div>
+<div class="statement">{{STATEMENT}}</div>
+<section class="statistics"{{STATS_HIDDEN}}>{{STATS}}</section>
+<section class="credentials">{{CREDENTIALS}}</section>
+<footer class="event"{{EVENT_HIDDEN}}><span class="event-label">本次分享</span><span class="event-title">{{EVENT}}</span></footer>
+</main><script>function adapt(){let p=document.querySelector('.poster');let s=Math.min(1,innerWidth/1080);p.style.transform=`scale(${s})`;document.body.style.height=`${1440*s}px`}addEventListener('resize',adapt);adapt();</script></body></html>

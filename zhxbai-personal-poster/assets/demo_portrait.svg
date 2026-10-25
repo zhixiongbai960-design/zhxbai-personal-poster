@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-label="非真实人物的示意头像">
+  <rect width="1000" height="1000" fill="#EEF4FF"/>
+  <circle cx="510" cy="355" r="145" fill="#9CB8E7"/>
+  <path d="M180 1000V865c0-195 150-320 330-320s330 125 330 320v135Z" fill="#9CB8E7"/>
+  <path d="m422 550 88 128 88-128" fill="#EEF4FF"/>
+</svg>
